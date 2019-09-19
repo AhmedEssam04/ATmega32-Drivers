@@ -46,7 +46,7 @@ u8 DIO_u8SetPortDirection(u8 Copy_u8PortNB, u8 Copy_u8Dir) {
 		Local_u8Error = nok;
 	}
 	/*Function shall return the Error state*/
-	return (Local_u8Error);
+	return Local_u8Error;
 }
 
 /*
@@ -75,7 +75,7 @@ u8 DIO_u8SetPortValue(u8 Copy_u8PortNB, u8 Copy_u8Value) {
 		Local_u8Error = nok;
 	}
 	/*Function shall return the Error state*/
-	return (Local_u8Error);
+	return Local_u8Error;
 }
 
 /*
@@ -113,7 +113,7 @@ u8 DIO_u8SetPinDirection(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Dir) {
 		}
 	}
 	/*Function shall return the Error state*/
-	return (Local_u8Error);
+	return Local_u8Error;
 }
 
 /*
@@ -151,7 +151,7 @@ u8 DIO_u8SetPinValue(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Value) {
 		}
 	}
 	/*Function shall return the Error state*/
-	return (Local_u8Error);
+	return Local_u8Error;
 }
 
 /*
@@ -186,7 +186,7 @@ u8 DIO_u8GetPortValue(u8 Copy_u8PortNB, u8 *Copy_u8Value) {
 		}
 	}
 	/*Function shall return the Error state*/
-	return (Local_u8Error);
+	return Local_u8Error;
 }
 
 /*
@@ -224,7 +224,7 @@ u8 DIO_u8GetPinValue(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 *Copy_u8Value) {
 		}
 	}
 	/*Function shall return the Error state*/
-	return (Local_u8Error);
+	return Local_u8Error;
 }
 
 /*
@@ -232,7 +232,7 @@ u8 DIO_u8GetPinValue(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 *Copy_u8Value) {
  * Inputs: Port Number , Value
  * Outputs:NA
  */
-/*float or pull-up in case of input pin or port (lw ana 3ayez a5leha floating aw internal pull-up)*/
+// float or pull-up in case of input pin or port (lw ana 3ayez a5leha floating aw internal pull-up)
 u8 DIO_u8SetPortInputType(u8 Copy_u8PortNB, u8 Copy_u8Type) {
 	/*Local Error state */
 	u8 Local_u8Error = ok;
@@ -254,7 +254,7 @@ u8 DIO_u8SetPortInputType(u8 Copy_u8PortNB, u8 Copy_u8Type) {
 		Local_u8Error = nok;
 	}
 	/*Function shall return the Error state*/
-	return (Local_u8Error);
+	return Local_u8Error;
 }
 
 /*
@@ -263,7 +263,7 @@ u8 DIO_u8SetPortInputType(u8 Copy_u8PortNB, u8 Copy_u8Type) {
  * Outputs:NA
  */
 
-/*float or pull-up in case of input*/
+// float or pull-up in case of input
 u8 DIO_u8SetPinInputType(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Type) {
 	/*Local Error state */
 	u8 Local_u8Error = ok;
@@ -294,6 +294,6 @@ u8 DIO_u8SetPinInputType(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Type) {
 		}
 	}
 	/*Function shall return the Error state*/
-	return (Local_u8Error);
+	return Local_u8Error;
 }
 
