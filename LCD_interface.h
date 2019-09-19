@@ -17,10 +17,10 @@
 
 /* configuration parameters */
 #define LCD_DATA_PORT 		DIO_PORT_2
-#define LCD_CONTROL_PORT 	DIO_PORT_3
-#define LCD_RS_PIN 	        DIO_PIN_2
-#define LCD_RW_PIN 	        DIO_PIN_1
-#define LCD_EN_PIN 	        DIO_PIN_0
+#define LCD_CONTROL_PORT 	DIO_PORT_1
+#define LCD_RS_PIN 		DIO_PIN_0
+#define LCD_RW_PIN 		DIO_PIN_1
+#define LCD_EN_PIN 		DIO_PIN_2
 
 /*
  * Description: Write Command to LCD
@@ -56,9 +56,5 @@ u8 LCD_u8WriteString(u8 * Copy_u8String, u8 Copy_u8Size);
  * Outputs:NA
  */
 void LCD_voidInitialize(void);
-
-void LCD_voidWriteSpecialChar(void);
-
-u8 LCD_u8WriteInt(u32 Copy_u8Int);
 
 #endif /* LCD_INTERFACE_H_ */

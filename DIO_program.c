@@ -27,7 +27,7 @@
  */
 u8 DIO_u8SetPortDirection(u8 Copy_u8PortNB, u8 Copy_u8Dir) {
 	/*Local Error state */
-	u8 Local_u8Error = ok;
+	u8 (Local_u8Error) = 0;
 	/* Check on the Required PORT Number */
 	switch (Copy_u8PortNB) {
 	case DIO_PORT_0:
@@ -43,7 +43,7 @@ u8 DIO_u8SetPortDirection(u8 Copy_u8PortNB, u8 Copy_u8Dir) {
 		DDRD = Copy_u8Dir;
 		break;
 	default: /* Wrong Port Number */
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 	}
 	/*Function shall return the Error state*/
 	return (Local_u8Error);
@@ -56,7 +56,7 @@ u8 DIO_u8SetPortDirection(u8 Copy_u8PortNB, u8 Copy_u8Dir) {
  */
 u8 DIO_u8SetPortValue(u8 Copy_u8PortNB, u8 Copy_u8Value) {
 	/*Local Error state */
-	u8 Local_u8Error = ok;
+	u8 (Local_u8Error) = 0;
 	/* Check on the Required PORT Number */
 	switch (Copy_u8PortNB) {
 	case DIO_PORT_0:
@@ -72,7 +72,7 @@ u8 DIO_u8SetPortValue(u8 Copy_u8PortNB, u8 Copy_u8Value) {
 		PORTD = Copy_u8Value;
 		break;
 	default: /* Wrong Port Number */
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 	}
 	/*Function shall return the Error state*/
 	return (Local_u8Error);
@@ -85,13 +85,13 @@ u8 DIO_u8SetPortValue(u8 Copy_u8PortNB, u8 Copy_u8Value) {
  */
 u8 DIO_u8SetPinDirection(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Dir) {
 	/*Local Error state */
-	u8 Local_u8Error = ok;
+	u8 (Local_u8Error) = 0;
 	/* Make sure that the Pin Number is in the valid range */
 	if (Copy_u8PinNB > DIO_PIN_7) {
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 		/* Make sure that the Directions are in the valid range */
 	} else if ((Copy_u8Dir != DIO_INPUT) && (Copy_u8Dir != DIO_OUTPUT)) {
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 	} else {
 		/* Check on the Required PORT Number */
 		switch (Copy_u8PortNB) {
@@ -108,7 +108,7 @@ u8 DIO_u8SetPinDirection(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Dir) {
 			ASSIGN_BIT(DDRD, Copy_u8PinNB, Copy_u8Dir);
 			break;
 		default: /* Wrong Port Number */
-			Local_u8Error = nok;
+			(Local_u8Error) = 1;
 			break;
 		}
 	}
@@ -123,13 +123,13 @@ u8 DIO_u8SetPinDirection(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Dir) {
  */
 u8 DIO_u8SetPinValue(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Value) {
 	/*Local Error state */
-	u8 Local_u8Error = ok;
+	u8 (Local_u8Error) = 0;
 	/* Make sure that the Pin Number is in the valid range */
 	if (Copy_u8PinNB > DIO_PIN_7) {
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 		/* Make sure that the Values are in the valid range */
 	} else if ((Copy_u8Value != DIO_LOW) && (Copy_u8Value != DIO_HIGH)) {
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 	} else {
 		/* Check on the Required PORT Number */
 		switch (Copy_u8PortNB) {
@@ -146,7 +146,7 @@ u8 DIO_u8SetPinValue(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Value) {
 			ASSIGN_BIT(PORTD, Copy_u8PinNB, Copy_u8Value);
 			break;
 		default: /* Wrong Port Number */
-			Local_u8Error = nok;
+			(Local_u8Error) = 1;
 			break;
 		}
 	}
@@ -161,10 +161,10 @@ u8 DIO_u8SetPinValue(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Value) {
  */
 u8 DIO_u8GetPortValue(u8 Copy_u8PortNB, u8 *Copy_u8Value) {
 	/*Local Error state */
-	u8 Local_u8Error = ok;
+	u8 (Local_u8Error) = 0;
 	/* Make sure that the Pointer is not a Null Pointer */
 	if (Copy_u8Value == NULL_POINTER) {
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 	} else {
 		/* Check on the Required PORT Number */
 		switch (Copy_u8PortNB) {
@@ -181,7 +181,7 @@ u8 DIO_u8GetPortValue(u8 Copy_u8PortNB, u8 *Copy_u8Value) {
 			(*Copy_u8Value) = PIND;
 			break;
 		default: /* Wrong Port Number */
-			Local_u8Error = nok;
+			(Local_u8Error) = 1;
 			break;
 		}
 	}
@@ -196,13 +196,13 @@ u8 DIO_u8GetPortValue(u8 Copy_u8PortNB, u8 *Copy_u8Value) {
  */
 u8 DIO_u8GetPinValue(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 *Copy_u8Value) {
 	/*Local Error state */
-	u8 Local_u8Error = ok;
+	u8 (Local_u8Error) = 0;
 	/* Make sure that the Pointer is not a Null Pointer */
 	if (Copy_u8Value == NULL_POINTER) {
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 		/* Make sure that the Pin Number is in the valid range */
 	} else if (Copy_u8PinNB > DIO_PIN_7) {
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 	} else {
 		/* Check on the Required PORT Number */
 		switch (Copy_u8PortNB) {
@@ -219,7 +219,7 @@ u8 DIO_u8GetPinValue(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 *Copy_u8Value) {
 			(*Copy_u8Value) = GET_BIT(PIND, Copy_u8PinNB);
 			break;
 		default: /* Wrong Port Number */
-			Local_u8Error = nok;
+			(Local_u8Error) = 1;
 			break;
 		}
 	}
@@ -232,10 +232,9 @@ u8 DIO_u8GetPinValue(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 *Copy_u8Value) {
  * Inputs: Port Number , Value
  * Outputs:NA
  */
-/*float or pull-up in case of input pin or port (lw ana 3ayez a5leha floating aw internal pull-up)*/
 u8 DIO_u8SetPortInputType(u8 Copy_u8PortNB, u8 Copy_u8Type) {
 	/*Local Error state */
-	u8 Local_u8Error = ok;
+	u8 (Local_u8Error) = 0;
 	/* Check on the Required PORT Number */
 	switch (Copy_u8PortNB) {
 	case DIO_PORT_0:
@@ -251,7 +250,7 @@ u8 DIO_u8SetPortInputType(u8 Copy_u8PortNB, u8 Copy_u8Type) {
 		PORTD = Copy_u8Type;
 		break;
 	default: /* Wrong Port Number */
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 	}
 	/*Function shall return the Error state*/
 	return (Local_u8Error);
@@ -262,17 +261,15 @@ u8 DIO_u8SetPortInputType(u8 Copy_u8PortNB, u8 Copy_u8Type) {
  * Inputs: Port Number , Pin Number , Type
  * Outputs:NA
  */
-
-/*float or pull-up in case of input*/
 u8 DIO_u8SetPinInputType(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Type) {
 	/*Local Error state */
-	u8 Local_u8Error = ok;
+	u8 (Local_u8Error) = 0;
 	/* Make sure that the Pin Number is in the valid range */
 	if (Copy_u8PinNB > DIO_PIN_7) {
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 		/* Make sure that the Types are in the valid range */
 	} else if ((Copy_u8Type != DIO_FLOAT) && (Copy_u8Type != DIO_PULL_UP)) {
-		Local_u8Error = nok;
+		(Local_u8Error) = 1;
 	} else {
 		/* Check on the Required PORT Number */
 		switch (Copy_u8PortNB) {
@@ -289,7 +286,7 @@ u8 DIO_u8SetPinInputType(u8 Copy_u8PortNB, u8 Copy_u8PinNB, u8 Copy_u8Type) {
 			ASSIGN_BIT(PORTD, Copy_u8PinNB, Copy_u8Type);
 			break;
 		default: /* Wrong Port Number */
-			Local_u8Error = nok;
+			(Local_u8Error) = 1;
 			break;
 		}
 	}

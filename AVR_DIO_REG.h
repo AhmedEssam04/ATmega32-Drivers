@@ -6,19 +6,19 @@
  */
 
 /********************************************/
-/*Author:			AhmedK					*/
-/*File Name:		AVR_DIO_REG.h			*/
-/*Component:		DIO						*/
-/*File Version:		v1.0					*/
+/*Author:		AhmedK		    */
+/*File Name:		AVR_DIO_REG.h	    */
+/*Component:		DIO	  	    */
+/*File Version:		v1.0		    */
 /********************************************/
 
 #ifndef AVR_DIO_REG_H_
 #define AVR_DIO_REG_H_
 
 /* A Registers */
-#define DDRA  (*((u8 *)0x3A))//direction register
-#define PORTA (*((u8 *)0x3B))//output register
-#define PINA  (*((u8 *)0x39))//input register
+#define DDRA  (*((u8 *)0x3A))
+#define PORTA (*((u8 *)0x3B))
+#define PINA  (*((u8 *)0x39))
 
 /* B Registers */
 #define DDRB  (*((u8 *)0x37))

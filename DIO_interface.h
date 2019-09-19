@@ -12,8 +12,6 @@
 /*File Version:		v1.0					*/
 /********************************************/
 
-
-
 #ifndef DIO_INTERFACE_H_
 #define DIO_INTERFACE_H_
 

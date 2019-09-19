@@ -29,13 +29,10 @@ typedef signed long long int s64;
 
 typedef float f32;
 typedef double f64;
-//typedef long double   compiler dependent  ;
+/*typedef long double   compiler dependent  ;*/
 
 #define NULL 0
 #define NULL_POINTER (void *)NULL
 #define NULL_CHAR NULL /* '\0' */
-#define ok 0
-#define nok 1//nok==error
-
 
 #endif /* STD_TYPES_H_ */
